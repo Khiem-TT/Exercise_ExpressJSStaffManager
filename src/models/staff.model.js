@@ -1,8 +1,8 @@
 const baseModel = require('./base.model');
 
 class StaffModel {
-    static async addStaff(name, age, department, status) {
-        const sql = `INSERT INTO staffs(name, age, department, status) VALUES('${name}', ${age}, '${department}', '${status}')`;
+    static async addStaff(name, age, department, status, image) {
+        const sql = `INSERT INTO staffs(name, age, department, status, image) VALUES('${name}', ${age}, '${department}', '${status}', '${image}')`;
         await baseModel.querySQL(sql);
     }
 
@@ -16,8 +16,8 @@ class StaffModel {
         await baseModel.querySQL(sql);
     }
 
-    static async updateStaff(name, age, department, status, id) {
-        const sql = `UPDATE staffs SET name = '${name}', age = ${age}, department = '${department}', status = '${status}' WHERE id = ${id}`;
+    static async updateStaff(name, age, department, status, image, id) {
+        const sql = `UPDATE staffs SET name = '${name}', age = ${age}, department = '${department}', status = '${status}', image = '${image}' WHERE id = ${id}`;
         await baseModel.querySQL(sql);
     }
 

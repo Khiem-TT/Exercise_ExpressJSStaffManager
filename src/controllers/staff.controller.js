@@ -7,7 +7,8 @@ class StaffController {
 
     static async addStaff(req, res) {
         const {name, age, department, status} = req.body;
-        await StaffModel.addStaff(name, age, department, status).catch(err => {
+        const image = req.file.originalname;
+        await StaffModel.addStaff(name, age, department, status, image).catch(err => {
             console.log(err.message);
         });
         res.redirect('/');
@@ -35,7 +36,8 @@ class StaffController {
     static async updateStaff(req, res) {
         let idStaff = req.params.id;
         let {name, age, department, status} = req.body;
-        await StaffModel.updateStaff(name, age, department, status, +idStaff).catch(err => {
+        let image = req.file.originalname;
+        await StaffModel.updateStaff(name, age, department, status, image, +idStaff).catch(err => {
             console.log(err.message);
         });
         res.redirect('/');

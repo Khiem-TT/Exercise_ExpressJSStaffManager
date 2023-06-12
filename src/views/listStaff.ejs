@@ -49,6 +49,7 @@
             <table class="table table-striped table-bordered table-hover">
                 <tr>
                     <th>#</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Age</th>
                     <th>Department</th>
@@ -58,7 +59,10 @@
                 <% data.forEach((staff, index) => { %>
                     <tr>
                         <td>
-                            <%= staff.id %>
+                            <%= index + 1 %>
+                        </td>
+                        <td>
+                            <img src="/upload/<%= staff.image %>" alt="" width="100" height="100">
                         </td>
                         <td>
                             <%= staff.name %>
